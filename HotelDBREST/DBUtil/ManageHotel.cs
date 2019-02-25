@@ -10,9 +10,15 @@ namespace HotelDBREST.DBUtil
 {
     public class ManageHotel
     {
+        /*
+         * Lokal database
+         */
         private const String ConnString =
             @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=PeleDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+        /*
+         * Cloud Database
+         */
         //private const String ConnString =
         //    @"Data Source=pele-easj-dbserver.database.windows.net;Initial Catalog=pele-easj-db;User ID=peleadm;Password=Secret1!;Connect Timeout=60;Encrypt=True;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
@@ -111,8 +117,8 @@ namespace HotelDBREST.DBUtil
             conn.Open();
 
             SqlCommand cmd = new SqlCommand(UPDATE, conn);
-            cmd.Parameters.AddWithValue("@HotelId", id);
-            cmd.Parameters.AddWithValue("@ID", hotel.Id);
+            cmd.Parameters.AddWithValue("@ID", id);
+            cmd.Parameters.AddWithValue("@HotelId", hotel.Id);
             cmd.Parameters.AddWithValue("@Name", hotel.Name);
             cmd.Parameters.AddWithValue("@Address", hotel.Address);
 
@@ -121,10 +127,9 @@ namespace HotelDBREST.DBUtil
             retValue = rowsAffected == 1 ? true : false;
 
             return retValue;
-
-
         }
 
+     
         // DELETE: api/Hotels/5
         public bool Delete(int id)
         {
