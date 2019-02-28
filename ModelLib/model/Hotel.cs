@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ModelLibrary.model
+namespace ModelLib.model
 {
     public class Hotel
     {
@@ -47,4 +47,6 @@ namespace ModelLibrary.model
             return $"{nameof(Id)}: {Id}, {nameof(Name)}: {Name}, {nameof(Address)}: {Address}";
         }
     }
+
 }
+
