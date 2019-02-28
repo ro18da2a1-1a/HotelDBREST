@@ -8,7 +8,7 @@ using ModelLib.model;
 
 namespace HotelDBREST.DBUtil
 {
-    public class ManageHotel
+    public class ManageHotel : IManage<Hotel>
     {
         /*
          * Lokal database

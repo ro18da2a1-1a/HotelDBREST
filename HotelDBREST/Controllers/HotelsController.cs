@@ -7,7 +7,7 @@ namespace HotelDBREST.Controllers
 {
     public class HotelsController : ApiController
     {
-        private static ManageHotel manager = new ManageHotel();
+        private static IManage<Hotel> manager = new ManageHotel();
 
 
         // GET: api/Hotels
