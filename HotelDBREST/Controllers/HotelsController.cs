@@ -9,6 +9,7 @@ namespace HotelDBREST.Controllers
     {
         private static ManageHotel manager = new ManageHotel();
 
+
         // GET: api/Hotels
         public IEnumerable<Hotel> Get()
         {
