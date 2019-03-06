@@ -161,10 +161,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\BookingsController.cs" />
+    <Compile Include="Controllers\GuestsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
-    <Compile Include="DBUtil\IManagel.cs" />
+    <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="DBUtil\IManage.cs" />
+    <Compile Include="DBUtil\ManageBooking.cs" />
+    <Compile Include="DBUtil\ManageGuest.cs" />
     <Compile Include="DBUtil\ManageHotel.cs" />
+    <Compile Include="DBUtil\ManageRoom.cs" />
+    <Compile Include="DBUtil\SQLConnectionSingleton.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>

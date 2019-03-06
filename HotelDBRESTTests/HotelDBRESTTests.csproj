@@ -67,6 +67,10 @@
       <Project>{1C6238F1-8142-4588-91E1-E46C48FE879A}</Project>
       <Name>HotelDBREST</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ModelLib\ModelLib.csproj">
+      <Project>{6beb223c-aec4-4639-879e-c2d55adaed47}</Project>
+      <Name>ModelLib</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
