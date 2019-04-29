@@ -38,6 +38,11 @@
     <!-- A reference to the entire .NET Framework is automatically included -->
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="model2\Booking.cs" />
+    <Compile Include="model2\Guest.cs" />
+    <Compile Include="model2\Hotel.cs" />
+    <Compile Include="model2\HotelFilter.cs" />
+    <Compile Include="model2\Room.cs" />
     <Compile Include="model\Booking.cs" />
     <Compile Include="model\Guest.cs" />
     <Compile Include="model\Hotel.cs" />

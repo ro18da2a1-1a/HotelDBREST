@@ -45,10 +45,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -163,18 +170,38 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\BookingsController.cs" />
     <Compile Include="Controllers\GuestsController.cs" />
+    <Compile Include="Controllers\GuestsV3Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\HotelsController.cs" />
+    <Compile Include="Controllers\HotelsV2Controller.cs" />
+    <Compile Include="Controllers\HotelsV3Controller.cs" />
+    <Compile Include="Controllers\PeterController.cs" />
     <Compile Include="Controllers\RoomsController.cs" />
+    <Compile Include="Controllers\GuestsV2Controller.cs" />
     <Compile Include="DBUtil\IManage.cs" />
     <Compile Include="DBUtil\ManageBooking.cs" />
     <Compile Include="DBUtil\ManageGuest.cs" />
     <Compile Include="DBUtil\ManageHotel.cs" />
     <Compile Include="DBUtil\ManageRoom.cs" />
     <Compile Include="DBUtil\SQLConnectionSingleton.cs" />
+    <Compile Include="DBUtil\version2\ManageGuest2.cs" />
+    <Compile Include="DBUtil\version2\ManageHotel2.cs" />
+    <Compile Include="DBUtil\version2\ManageRoom2.cs" />
+    <Compile Include="DBUtil\version3\ManageBookingsController.cs" />
+    <Compile Include="DBUtil\version3\ManageGuestsController.cs" />
+    <Compile Include="DBUtil\version3\ManageHotelsController.cs" />
+    <Compile Include="DBUtil\version3\ManageRoomsController.cs" />
+    <Compile Include="DBUtil\version3\ModelMapper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\DemoBooking.cs" />
+    <Compile Include="Models\DemoGuest.cs" />
+    <Compile Include="Models\DemoHotel.cs" />
+    <Compile Include="Models\DemoRoom.cs" />
+    <Compile Include="Models\GuestAtPrindsen.cs" />
+    <Compile Include="Models\GuestAtPrindsen2.cs" />
+    <Compile Include="Models\HotelDBModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,7 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
