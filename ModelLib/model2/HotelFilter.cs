@@ -49,6 +49,18 @@ namespace ModelLib.model2
             set => _AddressIs = value;
         }
 
+        public bool IsEmpty()
+        {
+            bool empty = true;
+
+            if (String.IsNullOrWhiteSpace(NameLike)) empty = false;
+            if (String.IsNullOrWhiteSpace(NameIs)) empty = false;
+            if (String.IsNullOrWhiteSpace(AddressLike)) empty = false;
+            if (String.IsNullOrWhiteSpace(AddressIs)) empty = false;
+
+            return empty;
+        }
+
         public override string ToString()
         {
             return $"{nameof(NameLike)}: {NameLike}, {nameof(NameIs)}: {NameIs}, {nameof(AddressLike)}: {AddressLike}, {nameof(AddressIs)}: {AddressIs}";

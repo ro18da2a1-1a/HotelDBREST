@@ -40,7 +40,71 @@ namespace HotelDBREST.DBUtil.version2
             return liste;
         }
 
-       public Hotel Get(int id)
+        public IEnumerable<Hotel> GetFilter(HotelFilter filter)
+        {
+            List<Hotel> liste = new List<Hotel>();
+
+            String sql = GenerateSQL(filter);
+
+            SqlCommand cmd = new SqlCommand(sql, SQLConnectionSingleton.Instance.DbConnection);
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Hotel hotel = ReadHotel(reader);
+                liste.Add(hotel);
+            }
+            reader.Close();
+
+            foreach (Hotel h in liste)
+            {
+                h.AddRange(ReadHotelRooms(h.Id));
+            }
+            return liste;
+        }
+
+        private string GenerateSQL(HotelFilter filter)
+        {
+            StringBuilder sb = new StringBuilder("SELECT * FROM DemoHotel");
+
+            if (filter.IsEmpty())
+                return sb.ToString();
+
+            sb.Append(" WHERE ");
+
+            bool haveAddress = false;
+            if (!string.IsNullOrWhiteSpace(filter.AddressIs))
+            {
+                sb.Append($" Address = '{filter.AddressIs}'");
+                haveAddress = true;
+            }
+            else if (!string.IsNullOrWhiteSpace(filter.AddressLike))
+            {
+                sb.Append($" Address LIKE '%{filter.AddressLike}%'");
+                haveAddress = true;
+            }
+
+            
+
+            if (!string.IsNullOrWhiteSpace(filter.NameIs))
+            {
+                if (haveAddress)
+                    sb.Append(" AND ");
+                sb.Append($" Name = '{filter.NameIs}'");
+            }
+            else if (!string.IsNullOrWhiteSpace(filter.NameLike))
+            {
+                if (haveAddress)
+                    sb.Append(" AND ");
+                sb.Append($" Name LIKE '%{filter.NameLike}%'");
+            }
+
+            return sb.ToString();
+
+        }
+
+
+        public Hotel Get(int id)
         {
             Hotel hotel = null;
 

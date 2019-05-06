@@ -19,10 +19,17 @@ namespace HotelDBREST.Controllers
 
         [Route("Roskilde")]
 
-    public IEnumerable<Hotel> GetFromRoskilde()
+        public IEnumerable<Hotel> GetFromRoskilde()
         {
             return mgr.GetFromRoskilde();
         }
+
+        [Route("Filter")]
+        public IEnumerable<Hotel> GetFilter([FromUri] HotelFilter filter)
+        {
+            return mgr.GetFilter(filter);
+        }
+
 
         [Route("{id}")]
         // GET: api2/Hotels/5
